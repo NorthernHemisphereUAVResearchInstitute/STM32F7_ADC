@@ -4,29 +4,35 @@
 #include "led.h"
 //#include "fir.h"
 
-extern float32_t em_data_m1[200];
-extern float32_t em_data_m2[200];
-extern float32_t em_data_m3[200];
-extern float32_t em_data_m4[200];
+float32_t em_data_m1[200];
+float32_t em_data_m2[200];
+float32_t em_data_m3[200];
+float32_t em_data_m4[200];
 
 void ADS131A0X_Init(void)
 {
 	
     GPIO_InitTypeDef GPIO_Initure;
-    __HAL_RCC_GPIOG_CLK_ENABLE();			//开启GPIOG时钟
-	__HAL_RCC_GPIOA_CLK_ENABLE();			//开启GPIOG时钟
+    __HAL_RCC_GPIOC_CLK_ENABLE();			//开启GPIOG时钟
+	//__HAL_RCC_GPIOA_CLK_ENABLE();			//开启GPIOG时钟
     
-    GPIO_Initure.Pin=GPIO_PIN_10; //PG10 ce引脚
+    GPIO_Initure.Pin=GPIO_PIN_6; //PC6 ce引脚
     GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
     GPIO_Initure.Pull=GPIO_PULLUP;          //上拉
     GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
-    HAL_GPIO_Init(GPIOG,&GPIO_Initure);     //初始化
+    HAL_GPIO_Init(GPIOC,&GPIO_Initure);     //初始化
 	
-	GPIO_Initure.Pin=GPIO_PIN_10; //PG10 reset
+		GPIO_Initure.Pin=GPIO_PIN_7; //PC7 ce引脚
     GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
     GPIO_Initure.Pull=GPIO_PULLUP;          //上拉
     GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
-    HAL_GPIO_Init(GPIOA,&GPIO_Initure);     //初始化
+    HAL_GPIO_Init(GPIOC,&GPIO_Initure);     //初始化
+	
+//	GPIO_Initure.Pin=GPIO_PIN_10; //PG10 reset
+//    GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
+//    GPIO_Initure.Pull=GPIO_PULLUP;          //上拉
+//    GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
+//    HAL_GPIO_Init(GPIOA,&GPIO_Initure);     //初始化
     
     SPI2_Init();    		                //初始化SPI2  
 	
@@ -93,7 +99,7 @@ u16 ADS13_REG(unsigned char com, unsigned data)
     else //写寄存器  
     {
         ADS_CS(0);
-		delay_us(10);  
+				delay_us(10);  
         ADS13_SPI(com);  
         ADS13_SPI(data);  
         ADS13_SPI(0X00); // 补齐0  24bit
@@ -201,7 +207,7 @@ void Read_ADS131A0X_BUFFER_DATA(void)
 u8 rx[200][24]={0};
 void Read_ADS131A0X_Value(u8 cnt)//读取ADC //先把数据缓存否则时间不够
 {
-	TEST_D5(0);
+	//TEST_D5(0);
 
 	static u8 tx[24]={0};
 	
@@ -212,16 +218,16 @@ void Read_ADS131A0X_Value(u8 cnt)//读取ADC //先把数据缓存否则时间不够
 		// 获取总线数据 24bit
 		HAL_SPI_TransmitReceive(&SPI2_Handler,tx,&rx[cnt][0],24, 1000);
 		ADS_CS(1);
-		TEST_D5(1);
+		//TEST_D5(1);
 	}
 	
-	TEST_D5(1);
+	//TEST_D5(1);
 	
 }
 
 void deal_with_AD_rawdata()
 {
-	TEST_D5(0);
+	//TEST_D5(0);
 	
 	uint32_t channel[4];
 	

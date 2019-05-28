@@ -83,4 +83,3 @@
 ..\obj\main.o: ..\HARDWARE\LCD\lcd.h
 ..\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\main.o: ..\HARDWARE\SDRAM\sdram.h
-..\obj\main.o: ..\HARDWARE\NRF24L01\24l01.h

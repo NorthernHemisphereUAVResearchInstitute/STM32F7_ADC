@@ -32,6 +32,7 @@
 "..\obj\ltdc.o"
 "..\obj\spi.o"
 "..\obj\24l01.o"
+"..\obj\em.o"
 "..\obj\usmart.o"
 "..\obj\usmart_str.o"
 "..\obj\usmart_config.o"

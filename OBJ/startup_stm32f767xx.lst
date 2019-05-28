@@ -1013,10 +1013,10 @@ ARM Macro Assembler    Page 16
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M7.fp.dp --apcs=
 interwork --depend=..\obj\startup_stm32f767xx.d -o..\obj\startup_stm32f767xx.o 
--I"D:\MyGitHubCode\实验36 NRF24L01无线通信实验\USER\RTE" -IF:\keil\Keil\STM32F7
-xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include -IC:\Keil_v5\ARM\CMSIS\
-Include --predefine="__UVISION_VERSION SETA 520" --predefine="STM32F767xx SETA 
-1" --list=..\obj\startup_stm32f767xx.lst ..\CORE\startup_stm32f767xx.s
+-ID:\MyGitHubCode\STM32F7_ADC\USER\RTE -IF:\keil\Keil\STM32F7xx_DFP\2.11.0\Driv
+ers\CMSIS\Device\ST\STM32F7xx\Include -IC:\Keil_v5\ARM\CMSIS\Include --predefin
+e="__UVISION_VERSION SETA 520" --predefine="STM32F767xx SETA 1" --list=..\obj\s
+tartup_stm32f767xx.lst ..\CORE\startup_stm32f767xx.s
 
 
 

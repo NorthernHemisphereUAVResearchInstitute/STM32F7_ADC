@@ -5,16 +5,16 @@
 
 typedef  float float32_t;
 
-#define ADS_CS(n)  (n?HAL_GPIO_WritePin(GPIOG,GPIO_PIN_10,GPIO_PIN_SET):HAL_GPIO_WritePin(GPIOG,GPIO_PIN_10,GPIO_PIN_RESET))//SPI片选信号	   
-#define ADS_RESET(n)  (n?HAL_GPIO_WritePin(GPIOA,GPIO_PIN_10,GPIO_PIN_SET):HAL_GPIO_WritePin(GPIOA,GPIO_PIN_10,GPIO_PIN_RESET))//SPI片选信号	   
+#define ADS_CS(n)  (n?HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,GPIO_PIN_SET):HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,GPIO_PIN_RESET))//SPI片选信号	   
+#define ADS_RESET(n)  (n?HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_SET):HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_RESET))//SPI片选信号	   
 
 
 
 #ifndef _ads131a04_h_
 #define _ads131a04_h_
 
-#define FPGA_RDY        HAL_GPIO_ReadPin(GPIOG,GPIO_PIN_9) 
-#define AD_RDY_PIN        HAL_GPIO_ReadPin(GPIOG,GPIO_PIN_9) 
+#define FPGA_RDY        HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_8) 
+#define AD_RDY_PIN        HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_8) 
 
 /*ADS131A04 Definitions*/
 
