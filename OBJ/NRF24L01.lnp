@@ -28,14 +28,8 @@
 "..\obj\led.o"
 "..\obj\key.o"
 "..\obj\sdram.o"
-"..\obj\lcd.o"
-"..\obj\ltdc.o"
 "..\obj\spi.o"
-"..\obj\24l01.o"
 "..\obj\em.o"
-"..\obj\usmart.o"
-"..\obj\usmart_str.o"
-"..\obj\usmart_config.o"
 --strict --scatter "..\OBJ\NRF24L01.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
