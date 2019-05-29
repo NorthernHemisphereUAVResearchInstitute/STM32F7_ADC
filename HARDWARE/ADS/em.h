@@ -4,10 +4,15 @@
 //#include "arm_math.h"
 
 typedef  float float32_t;
+extern float32_t em_data_m1[200];
+extern float32_t em_data_m2[200];
+extern float32_t em_data_m3[200];
+extern float32_t em_data_m4[200];
 
 #define ADS_CS(n)  (n?HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,GPIO_PIN_SET):HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,GPIO_PIN_RESET))//SPI片选信号	   
 #define ADS_RESET(n)  (n?HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_SET):HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_RESET))//SPI片选信号	   
-
+#define LED(n) (n?HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_SET):HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_RESET))	//PB1置1 
+	
 
 
 #ifndef _ads131a04_h_
@@ -110,4 +115,6 @@ void Read_ADS131A0X_Value(u8 cnt);
 
 void ADS131A0X_Init(void);
 void AD_FPGA_read_once (float32_t* m1,float32_t* m2,float32_t* m3);
+void get_data(void);
+void deal_with_AD_rawdata(void);
 #endif

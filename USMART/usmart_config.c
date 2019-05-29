@@ -4,9 +4,9 @@
 //这下面要包含所用到的函数所申明的头文件(用户自己添加) 
 #include "delay.h"	 	
 #include "sys.h"
-#include "lcd.h"
+//#include "lcd.h"
 #include "sdram.h"
-#include "ltdc.h"
+//#include "ltdc.h"
 								 									  
 //函数名列表初始化(用户自己添加)
 //用户直接在这里输入要执行的函数名及其查找串

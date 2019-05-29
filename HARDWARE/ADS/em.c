@@ -15,18 +15,20 @@ void ADS131A0X_Init(void)
     GPIO_InitTypeDef GPIO_Initure;
     __HAL_RCC_GPIOC_CLK_ENABLE();			//开启GPIOG时钟
 	//__HAL_RCC_GPIOA_CLK_ENABLE();			//开启GPIOG时钟
-    
-    GPIO_Initure.Pin=GPIO_PIN_6; //PC6 ce引脚
+ 
+    GPIO_Initure.Pin=GPIO_PIN_6|GPIO_PIN_7; //PC6 cs引脚,PC7 reset引脚
     GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
     GPIO_Initure.Pull=GPIO_PULLUP;          //上拉
     GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
     HAL_GPIO_Init(GPIOC,&GPIO_Initure);     //初始化
 	
-		GPIO_Initure.Pin=GPIO_PIN_7; //PC7 ce引脚
-    GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
+	
+	  GPIO_Initure.Pin=GPIO_PIN_8; //PC8 DRDY引脚
+    GPIO_Initure.Mode=GPIO_MODE_INPUT;  //输入模式
     GPIO_Initure.Pull=GPIO_PULLUP;          //上拉
     GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
     HAL_GPIO_Init(GPIOC,&GPIO_Initure);     //初始化
+	
 	
 //	GPIO_Initure.Pin=GPIO_PIN_10; //PG10 reset
 //    GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
@@ -177,13 +179,13 @@ u8 ADC_READY(void)
 {
 	while(AD_RDY_PIN==0)
 	{
-		//LED(0);
+		LED(0);
 		//LED(1);
 	}
 	
 	while(AD_RDY_PIN==1)
 	{
-		//LED(1);
+		LED(1);
 	}
 	
 
@@ -256,7 +258,7 @@ void deal_with_AD_rawdata()
 	}
 }
 
-void get_data()
+void get_data(void)
 {
 	for(u8 i = 0; i<200; i++)
 	{

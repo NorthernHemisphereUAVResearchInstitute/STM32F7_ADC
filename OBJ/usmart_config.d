@@ -79,7 +79,3 @@
 ..\obj\usmart_config.o: ..\CORE\core_cm7.h
 ..\obj\usmart_config.o: ..\HALLIB\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h
 ..\obj\usmart_config.o: ..\SYSTEM\delay\delay.h
-..\obj\usmart_config.o: ..\HARDWARE\LCD\lcd.h
-..\obj\usmart_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\usmart_config.o: ..\HARDWARE\SDRAM\sdram.h
-..\obj\usmart_config.o: ..\HARDWARE\LCD\ltdc.h
